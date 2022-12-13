@@ -1,24 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
-import {Header} from './components/Header';
-import PersonList from './components/PersonList';
-import RemovePerson from './components/RemovePerson';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import PeopleList from './components/PeopleList';
+import AddPerson from './components/AddPerson';
 
-function App() {
-  // const dataValues = ['Apple', 'Banana', 'Potato']
-  
+function App() {  
   return (
+    <Router>    
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-       <h1>Hello potatis!</h1>
-       {dataValues.map(items =>(
-        <Header headerValue={items} />
-       ))}
-      </header> */}
-     <PersonList/>
-     <RemovePerson/>
+      <Routes>
+        <Route path='/' exact element={<PeopleList/>}/>
+        <Route path='/Create' element={<AddPerson/>}/>
+      </Routes>
+   
     </div>
+    </Router>
   );
 }
 
